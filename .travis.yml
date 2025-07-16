@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before install:
+  - docker build -t 83497/devops-react -f Dockerfile.dev .
+script:
+  - docker run -e CI=true 83497/devops-react npm run test
